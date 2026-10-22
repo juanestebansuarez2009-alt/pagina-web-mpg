@@ -1,0 +1,160 @@
+/* ==========================================================================
+   MPG Insolvencias - base.css
+   Variables de marca, reinicio y tipografía.
+   Orden de carga: base.css -> layout.css -> components.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variables (identidad de marca)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colores */
+  --color-primary: #5c1a2b;          /* guinda */
+  --color-primary-dark: #3a0f1b;     /* guinda oscuro (pie de página, hover) */
+  --color-accent: #b08d57;           /* dorado */
+  --color-accent-on-dark: #c9a36a;   /* dorado sobre fondos oscuros */
+  --color-bg: #f6f1ea;               /* fondo general */
+  --color-surface: #ffffff;          /* tarjetas y secciones alternas */
+  --color-text: #231f20;
+  --color-text-muted: #6a6362;
+  --color-line: #e3d9cc;             /* bordes y separadores */
+  --color-input-border: #cfc3b4;
+  --color-error: #a32020;
+
+  /* Tipografía */
+  --font-sans: "Manrope", Arial, sans-serif;
+
+  /* Medidas */
+  --radius: 4px;
+  --container-max: 1200px;
+  --header-height: 72px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reinicio
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 26px;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 17px;
+    line-height: 28px;
+  }
+}
+
+h1, h2, h3, p, ul, ol, dl, dd, figure {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Accesibilidad
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 3px solid var(--color-accent-on-dark);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Tipografía
+   -------------------------------------------------------------------------- */
+.label {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.label--on-dark {
+  color: var(--color-accent-on-dark);
+}
+
+.break-all {
+  word-break: break-all;
+}
+
+/* Barra dorada decorativa que antecede los títulos */
+.accent-bar {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.accent-bar--on-dark {
+  background: var(--color-accent-on-dark);
+}

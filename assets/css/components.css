@@ -1,0 +1,1083 @@
+/* ==========================================================================
+   MPG Insolvencias - components.css
+   Componentes reutilizables. Cada bloque usa nomenclatura BEM:
+   .bloque, .bloque__elemento, .bloque--modificador
+   Índice:
+    1. Iconos            8. Tarjetas
+    2. Botones           9. Pasos, valores y equipo
+    3. Logo             10. Portada (hero) y accesos
+    4. Encabezado       11. Bloque de experiencia y marco legal
+    5. Menú móvil       12. Preguntas frecuentes
+    6. Pie de página    13. Llamado a la acción (CTA)
+    7. Títulos de       14. Procesos concursales
+       sección          15. Contacto y formulario
+                        16. Política de datos
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Iconos
+   -------------------------------------------------------------------------- */
+.icon {
+  flex-shrink: 0;
+}
+.icon--xs, .icon--sm { width: 16px; height: 16px; }
+.icon--md { width: 20px; height: 20px; }
+.icon--lg { width: 24px; height: 24px; }
+.icon--xl { width: 32px; height: 32px; }
+
+/* --------------------------------------------------------------------------
+   2. Botones
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 24px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+  transition: background-color 150ms ease;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+.btn--primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn--secondary {
+  border-color: var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+}
+.btn--secondary:hover {
+  background: rgb(92 26 43 / 6%);
+}
+
+.btn--on-dark {
+  background: var(--color-bg);
+  color: var(--color-primary);
+}
+.btn--on-dark:hover {
+  background: var(--color-surface);
+}
+
+/* --------------------------------------------------------------------------
+   3. Logo
+   -------------------------------------------------------------------------- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo__mark {
+  width: auto;
+  height: 36px;
+}
+.logo__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  color: var(--color-primary);
+}
+.logo__name {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.logo__tagline {
+  margin-top: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+}
+.logo--negative .logo__text {
+  color: var(--color-bg);
+}
+
+/* --------------------------------------------------------------------------
+   4. Encabezado y navegación
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  padding: 8px;
+  background: var(--color-surface);
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: none;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: var(--header-height);
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-header__cta {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .site-header__cta {
+    display: inline-flex;
+  }
+}
+
+/* Navegación de escritorio */
+.nav {
+  display: none;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav__link {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.nav__link:hover {
+  color: var(--color-primary);
+}
+.nav__link--active {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: block;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Menú móvil
+   -------------------------------------------------------------------------- */
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.mobile-menu {
+  border-top: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  padding-block: 16px;
+}
+.mobile-menu__link {
+  display: block;
+  padding-block: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.mobile-menu__link--active {
+  color: var(--color-primary);
+}
+.mobile-menu__cta {
+  width: 100%;
+  margin-top: 12px;
+}
+
+@media (min-width: 1024px) {
+  .menu-toggle,
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Pie de página y botón flotante de WhatsApp
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-primary-dark);
+  color: var(--color-bg);
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: 48px;
+  padding-block: 64px;
+}
+
+@media (min-width: 768px) {
+  .site-footer__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.site-footer__about {
+  max-width: 20rem;
+  margin-top: 24px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.site-footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 15px;
+}
+.site-footer__list a:hover {
+  text-decoration: underline;
+}
+
+.site-footer__list--contact {
+  gap: 12px;
+  line-height: 24px;
+}
+.site-footer__list--contact li {
+  display: flex;
+  gap: 12px;
+}
+.site-footer__list--contact .icon {
+  margin-top: 4px;
+}
+
+.site-footer__legal {
+  border-top: 1px solid rgb(246 241 234 / 15%);
+}
+.site-footer__legal p {
+  padding-block: 24px;
+  font-size: 14px;
+}
+
+.whatsapp-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+.whatsapp-fab:hover {
+  background: var(--color-primary-dark);
+}
+
+/* --------------------------------------------------------------------------
+   7. Títulos de sección
+   -------------------------------------------------------------------------- */
+.section-heading {
+  max-width: 48rem;
+}
+
+.section-heading__label {
+  margin-top: 16px;
+}
+
+.section-heading__title {
+  margin-top: 12px;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+
+h1.section-heading__title {
+  font-size: 34px;
+  line-height: 40px;
+}
+
+.section-heading__text {
+  max-width: 70ch;
+  margin-top: 16px;
+  color: var(--color-text-muted);
+}
+.section-heading__text > * + * {
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .section-heading__title {
+    font-size: 34px;
+    line-height: 40px;
+  }
+  h1.section-heading__title {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+/* Variante sobre fondo guinda */
+.section-heading--dark .accent-bar {
+  background: var(--color-accent-on-dark);
+}
+.section-heading--dark .section-heading__label {
+  color: var(--color-accent-on-dark);
+}
+.section-heading--dark .section-heading__title,
+.section-heading--dark .section-heading__text {
+  color: var(--color-bg);
+}
+
+/* Encabezado de las páginas internas */
+.page-hero {
+  background: var(--color-bg);
+  padding-block: 64px;
+}
+.page-hero .section-heading__text {
+  color: var(--color-text);
+}
+.page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+@media (min-width: 768px) {
+  .page-hero {
+    padding-block: 96px;
+  }
+}
+
+/* Espacio reservado para fotografías */
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+}
+.photo-placeholder--4x3 { aspect-ratio: 4 / 3; }
+.photo-placeholder--16x10 { aspect-ratio: 16 / 10; }
+.photo-placeholder--4x5 { aspect-ratio: 4 / 5; }
+
+/* --------------------------------------------------------------------------
+   8. Tarjetas
+   -------------------------------------------------------------------------- */
+.card {
+  padding: 24px;
+  border-top: 2px solid var(--color-accent);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.card__title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.card__text {
+  margin-top: 12px;
+  color: var(--color-text-muted);
+}
+
+.card--service {
+  display: flex;
+  flex-direction: column;
+}
+.card--service .card__text {
+  flex: 1;
+}
+
+.card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.card__link:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 32px;
+  }
+  .card__title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Pasos, valores y equipo
+   -------------------------------------------------------------------------- */
+.steps__item {
+  padding-top: 24px;
+  border-top: 1px solid var(--color-line);
+}
+.steps__number {
+  display: block;
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+.steps__title {
+  margin-top: 16px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+.steps__text {
+  margin-top: 8px;
+  color: var(--color-text-muted);
+}
+
+.values__item {
+  padding-top: 24px;
+  border-top: 2px solid var(--color-accent);
+}
+.values__title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.values__text {
+  margin-top: 8px;
+  color: var(--color-text-muted);
+}
+
+.team__name {
+  margin-top: 16px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.team__role {
+  color: var(--color-text-muted);
+}
+
+.check-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  font-weight: 700;
+}
+.check-list__item .icon {
+  margin-top: 4px;
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   10. Portada (hero) y accesos por tipo de cliente
+   -------------------------------------------------------------------------- */
+.hero {
+  background: var(--color-bg);
+}
+
+.hero__grid {
+  display: grid;
+  align-items: center;
+  gap: 48px;
+  padding-block: 64px;
+}
+
+.hero__label {
+  margin-top: 16px;
+}
+
+.hero__title {
+  margin-top: 12px;
+  font-size: 34px;
+  line-height: 40px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+
+.hero__text {
+  max-width: 70ch;
+  margin-top: 24px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+@media (min-width: 768px) {
+  .hero__grid {
+    padding-block: 96px;
+  }
+  .hero__title {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__grid {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+.path-cards {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .path-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.path-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  transition: border-color 150ms ease;
+}
+.path-card:hover {
+  border-color: var(--color-primary);
+}
+.path-card .icon {
+  color: var(--color-primary);
+}
+.path-card__title {
+  margin-top: 24px;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+.path-card__text {
+  margin-top: 12px;
+  color: var(--color-text-muted);
+}
+.path-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.path-card__link .icon {
+  transition: transform 150ms ease;
+}
+.path-card:hover .path-card__link .icon {
+  transform: translateX(4px);
+}
+
+@media (min-width: 768px) {
+  .path-card {
+    padding: 40px;
+  }
+  .path-card__title {
+    font-size: 34px;
+    line-height: 40px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. Bloque de experiencia y marco legal
+   -------------------------------------------------------------------------- */
+.highlight {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+.highlight__watermark {
+  position: absolute;
+  top: -64px;
+  right: -40px;
+  width: auto;
+  height: 340px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.highlight__grid {
+  position: relative;
+  display: grid;
+  gap: 40px;
+  padding-block: 64px;
+}
+.highlight__title {
+  margin-top: 16px;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.highlight__text {
+  max-width: 70ch;
+  margin-top: 16px;
+}
+.highlight__quote {
+  padding-left: 24px;
+  border-left: 2px solid var(--color-accent-on-dark);
+}
+.highlight__quote .icon {
+  color: var(--color-accent-on-dark);
+}
+.highlight__quote-text {
+  margin-top: 16px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+.highlight__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-weight: 700;
+  color: var(--color-accent-on-dark);
+}
+.highlight__link:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .highlight__grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding-block: 96px;
+  }
+  .highlight__title {
+    font-size: 34px;
+    line-height: 40px;
+  }
+  .highlight__quote-text {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
+
+.law-card {
+  padding: 32px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+}
+.law-card__title {
+  margin-top: 12px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.law-card__text {
+  margin-top: 8px;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   12. Preguntas frecuentes (details/summary nativo, sin JavaScript)
+   -------------------------------------------------------------------------- */
+.faq {
+  max-width: 48rem;
+  margin-top: 48px;
+  border-block: 1px solid var(--color-line);
+}
+
+.faq__item + .faq__item {
+  border-top: 1px solid var(--color-line);
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 44px;
+  padding-block: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+.faq__question h3 {
+  font-size: 17px;
+  line-height: 28px;
+}
+.faq__question .icon,
+.process__summary .icon {
+  color: var(--color-primary);
+  transition: transform 150ms ease;
+}
+.faq__item[open] .faq__question .icon,
+.process[open] .process__summary .icon {
+  transform: rotate(180deg);
+}
+
+.faq__answer {
+  max-width: 70ch;
+  padding-bottom: 24px;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   13. Llamado a la acción (CTA)
+   -------------------------------------------------------------------------- */
+.cta {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-primary);
+}
+.cta__watermark {
+  position: absolute;
+  right: -40px;
+  bottom: -64px;
+  width: auto;
+  height: 360px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.cta__inner {
+  position: relative;
+  padding-block: 64px;
+}
+.cta__inner .btn {
+  margin-top: 32px;
+}
+
+@media (min-width: 768px) {
+  .cta__inner {
+    padding-block: 96px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. Procesos concursales
+   -------------------------------------------------------------------------- */
+.process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.process {
+  border-top: 2px solid var(--color-accent);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.process__summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px;
+  cursor: pointer;
+  list-style: none;
+}
+.process__summary::-webkit-details-marker {
+  display: none;
+}
+.process__summary .icon {
+  margin-top: 4px;
+}
+.process__name {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.process__meta {
+  margin-top: 4px;
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+.process__body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 0 24px 32px;
+}
+
+.process__details {
+  display: grid;
+  gap: 16px;
+  font-size: 15px;
+}
+.process__details dt {
+  font-weight: 700;
+}
+.process__details dd {
+  color: var(--color-text-muted);
+}
+
+.process__docs {
+  display: grid;
+  gap: 32px;
+}
+
+@media (min-width: 640px) {
+  .process__details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .process__summary {
+    padding: 32px;
+  }
+  .process__body {
+    padding: 0 32px 32px;
+  }
+  .process__name {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .process__docs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.doc-list {
+  margin-top: 12px;
+  border-block: 1px solid var(--color-line);
+}
+.doc-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 44px;
+  padding-block: 8px;
+  font-size: 15px;
+}
+.doc-list__item + .doc-list__item {
+  border-top: 1px solid var(--color-line);
+}
+.doc-list__link {
+  font-weight: 500;
+  color: var(--color-primary);
+}
+.doc-list__link:hover {
+  text-decoration: underline;
+}
+.doc-list__item--pending {
+  color: var(--color-text-muted);
+}
+.doc-list__status {
+  flex-shrink: 0;
+  font-size: 13px;
+}
+
+/* --------------------------------------------------------------------------
+   15. Contacto y formulario
+   -------------------------------------------------------------------------- */
+.contact {
+  display: grid;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+@media (min-width: 1024px) {
+  .contact {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}
+
+.form {
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.form__row {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .form {
+    padding: 32px;
+  }
+  .form__row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form__submit {
+  justify-self: start;
+}
+
+.field__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.field__control {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 16px;
+}
+.field__control[aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
+/* Mensaje de error que inserta contact-form.js */
+.field__error {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--color-error);
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 24px;
+}
+.check__input {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin: 4px 0 0;
+  accent-color: var(--color-primary);
+}
+.check a {
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.contact__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contact__list li {
+  display: flex;
+  gap: 12px;
+}
+.contact__list .icon {
+  margin-top: 4px;
+  color: var(--color-primary);
+}
+.contact__label {
+  font-weight: 700;
+}
+.contact__list a {
+  color: var(--color-primary);
+}
+.contact__list a:hover {
+  text-decoration: underline;
+}
+.contact__list p:not(.contact__label) {
+  color: var(--color-text-muted);
+}
+
+.contact__map {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+}
+
+/* --------------------------------------------------------------------------
+   16. Política de datos
+   -------------------------------------------------------------------------- */
+.notice {
+  padding: 16px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.legal {
+  max-width: 70ch;
+  margin-top: 48px;
+}
+.legal > * + * {
+  margin-top: 32px;
+}
+.legal__title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.legal p {
+  margin-top: 8px;
+}
