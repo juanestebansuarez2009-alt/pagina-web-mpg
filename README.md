@@ -1,35 +1,40 @@
-# Welcome to your Lovable project
+# MPG Insolvencias - sitio web estático
 
-This project was built with [Lovable](https://lovable.dev).
+Sitio en HTML, CSS y JavaScript puro. No necesita servidor de aplicaciones, Node ni Cloudflare: basta con subir los archivos a cualquier hosting (cPanel, Apache, Netlify, GitHub Pages, etc.).
 
-## Build with Lovable
+## Estructura
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+| Archivo | Contenido |
+| --- | --- |
+| `index.html` | Inicio |
+| `insolvencia-persona-natural.html` | Insolvencia de persona natural |
+| `insolvencia-empresarial.html` | Insolvencia empresarial |
+| `contabilidad-revision-fiscal.html` | Contabilidad y revisión fiscal |
+| `contabilidad-conjuntos-residenciales.html` | Contabilidad para conjuntos residenciales |
+| `nosotros.html` | Nosotros |
+| `procesos.html` | Procesos concursales |
+| `contacto.html` | Contacto (formulario que continúa por WhatsApp) |
+| `politica-de-datos.html` | Política de tratamiento de datos (borrador para revisión legal) |
+| `assets/css/styles.css` | Estilos (identidad MPG: guinda, dorado, Manrope) |
+| `assets/js/main.js` | Menú móvil y formulario |
+| `.htaccess`, `robots.txt`, `sitemap.xml` | Configuración Apache y SEO |
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Probar en local
 
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+```
+python3 -m http.server 8080
 ```
 
-## Built with
+Abra http://localhost:8080. También funciona abriendo `index.html` directamente en el navegador.
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## Publicar
 
-## Notas de exportación
+Suba todo el contenido de esta carpeta a la raíz del hosting. No borre la carpeta `/procesos/` que ya existe en el sitio actual: contiene los PDF y las URL antiguas deben seguir funcionando.
 
-- Este código es una copia del proyecto de Lovable (commit a68c14ce).
-- No se incluyen `bun.lock` ni `src/components/ui/` (componentes shadcn sin uso en el código actual). Ejecute `bun install` (o `npm install`) para generar el lockfile. Si necesita componentes shadcn, agréguelos con `npx shadcn@latest add <componente>` (ya existe `components.json`).
-- Ejecutar: `bun install && bun run dev`.
+## Pendientes
+
+- Reemplazar los marcadores de foto por imágenes reales.
+- Confirmar con el cliente: revisión o revisoría fiscal, apellido del fundador, correo corporativo, URLs de los PDF en `procesos.html`.
+- Revisión legal de `politica-de-datos.html`.
+- [No Verificado] Las URL y los dominios del sitemap y de las etiquetas canonical asumen `https://mpginsolvencias.com`.
+- Los CSS se generaron desde el proyecto TanStack Start anterior (commit `b40caa5` en el historial de este repositorio).

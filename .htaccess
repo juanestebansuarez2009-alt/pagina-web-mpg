@@ -1,0 +1,18 @@
+# Para hosting Apache (cPanel). No afecta la carpeta /procesos/ con los PDF existentes.
+DirectoryIndex index.html
+
+# Compatibilidad con las URL del sitio anterior
+RewriteEngine On
+RewriteRule ^inicio\.html$ /index.html [R=301,L]
+# [No Verificado] portafolio.html del sitio anterior: confirme el destino antes de activar
+# RewriteRule ^portafolio\.html$ /procesos.html [R=301,L]
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
